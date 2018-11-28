@@ -37,8 +37,8 @@ public class BBGame extends Game {
         batch = new SpriteBatch();
         font = new BitmapFont();
 
-        playerTex1 = new Texture(Gdx.files.internal("survivor-shoot_rifle_0.png"));
-        playerTex2 = new Texture(Gdx.files.internal("zombie.png"));
+        playerTex1 = new Texture(Gdx.files.internal("player1.png"));
+        playerTex2 = new Texture(Gdx.files.internal("player2.png"));
         player1 = new Player("Shredder", false, playerTex1, 23, 38, 293, 191);
         player2 = new Player("Donatello", false, playerTex2, 0, 0, 45, 37);
 
