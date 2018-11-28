@@ -20,7 +20,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 
-public class FirstTimeMenu implements Screen {
+public class MainMenuScreen implements Screen {
     final BBGame game;
     public OrthographicCamera camera;
     public Stage stage;
@@ -33,7 +33,8 @@ public class FirstTimeMenu implements Screen {
     BitmapFont textyText;
 
 
-    public FirstTimeMenu(final BBGame game) {
+
+    public MainMenuScreen(final BBGame game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1280, 720);
@@ -46,6 +47,11 @@ public class FirstTimeMenu implements Screen {
         parameters = new FreeTypeFontParameter();
         parameters.size = 80;
         parameters.color= Color.RED;
+//        parameters.borderColor = Color.RED;
+//        parameters.borderWidth = 3;
+
+
+
 
         uiText = generator.generateFont(parameters);
         //start = TimeUtils.millis();
@@ -70,40 +76,11 @@ public class FirstTimeMenu implements Screen {
 
     @Override
     public void render(float delta) {
-//        Gdx.gl.glClearColor(0.5f,0,0,1);
-//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-//
-//        camera.update();
-//        game.batch.setProjectionMatrix(camera.combined);
-//
-//        game.batch.begin();
-//        game.font.draw(game.batch, "DEATH MARCH", 570, 600);
-//        game.font.draw(game.batch, "Ready Player 1", 500, 200);
-//        game.font.draw(game.batch, "Ready Player 2", 640, 200);
-//        game.batch.end();
-//
-//        if(Gdx.input.isTouched()){
-//            game.setScreen(new GameScreen(game));
-//            dispose();
-//        }
-
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
-
-        game.batch.begin();
-
-
-        //Vector3 posCamara = camera.position;
-        uiText.draw(game.batch, "DEATH MARCH",  +325 , 700 );
-        textyText.draw(game.batch,"Made by the DEATH MARCHERS",375, 100);
-
-
-        game.batch.end();
-
-
     }
 
     @Override
@@ -157,15 +134,18 @@ public class FirstTimeMenu implements Screen {
         TextButton preferences = new TextButton("Settings", skin);
         TextButton exit = new TextButton("Exit", skin);
         TextButton hof = new TextButton("Hall of Fame", skin);
+        //
 
         //table.add(uiText.draw())
 
         table.add(newGame).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);
         table.add(hof).fillX().uniformX();
-        table.row();
+        //table.row();
+        table.row().pad(10, 0, 10, 0);
         table.add(preferences).fillX().uniformX();
-        table.row();
+        //table.row();
+        table.row().pad(10, 0, 10, 0);
         table.add(exit).fillX().uniformX();
 
         exit.addListener(new ChangeListener() {

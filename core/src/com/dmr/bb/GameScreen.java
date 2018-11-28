@@ -44,7 +44,9 @@ import java.util.Iterator;
 
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
+import com.dmr.bb.Entities.Goblin;
 import com.dmr.bb.Entities.Player;
+import com.dmr.bb.Weapons.BeamCannon;
 
 public class GameScreen implements Screen {
     public BBGame game;
@@ -62,8 +64,6 @@ public class GameScreen implements Screen {
     public static Array<Projectile> bile;
     private long lastBeamShot;
     public static Array<Goblin> goblins;
-    private LogicModel lm;
-    //private Box2DDebugRenderer dbr;
     public static Direction lastDirection[];
     private Stage stage;
     AssetManager assetManager;
@@ -240,7 +240,7 @@ public class GameScreen implements Screen {
             //camera = new OrthographicCamera();
             //camera.setToOrtho(false, 1280, 720);
             //camera.update();
-            game.changeScreen(DeathMarch.MENU);
+            game.changeScreen(BBGame.MENU);
 
         }
         // ------------------
@@ -633,7 +633,7 @@ public class GameScreen implements Screen {
         //enter Store
         if (Gdx.input.isKeyPressed(Input.Keys.P) && pOne.getBoundingRectangle().overlaps(stairs.getBoundingRectangle())) {
             bgm_Music.stop();
-            game.changeScreen(DeathMarch.SHOP);
+            game.changeScreen(BBGame.SHOP);
         }
 
 
@@ -715,13 +715,13 @@ public class GameScreen implements Screen {
 
         if (300 - (System.currentTimeMillis() - startTime) / 1000 == 0) {
             init();
-            game.changeScreen(DeathMarch.MENU);
+            game.changeScreen(BBGame.MENU);
         }
 
 
         if (pTwo.isDead() && !pOne.isDead()) {
             bgm_Music.stop();
-            game.changeScreen(DeathMarch.WIN);
+            game.changeScreen(BBGame.WIN);
             //init();
 
         }
@@ -729,7 +729,7 @@ public class GameScreen implements Screen {
         if (pOne.isDead()) {
 
             bgm_Music.stop();
-            game.changeScreen(DeathMarch.LOSE);
+            game.changeScreen(BBGame.LOSE);
             init();
         }
 

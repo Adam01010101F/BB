@@ -20,8 +20,7 @@ public class BBGame extends Game {
     private Texture playerTex2;
     private SplashScreen splashScreen;
     private GameScreen gameScreen;
-//    private MainMenuScreen menuScreen;
-//    private GameScreen mainScreen;
+    private MainMenuScreen menuScreen;
 
     public final static int MENU = 0;
     public final static int PREFERENCES = 1;
@@ -64,30 +63,21 @@ public class BBGame extends Game {
 
         switch(screen){
             case MENU:
-
                 if(menuScreen == null) menuScreen = new MainMenuScreen(this);
                 this.setScreen(menuScreen);
-
                 break;
 
             case PREFERENCES:
-
-                if(preferencesScreen == null) preferencesScreen = new PreferencesScreen(this);
-
-                this.setScreen(preferencesScreen);
-
+//                if(preferencesScreen == null) preferencesScreen = new PreferencesScreen(this);
+//                this.setScreen(preferencesScreen);
                 break;
 
             case APPLICATION:
 
                 // always make new game screen so game can't start midway
-
                 if(gameScreen == null){
-
                     gameScreen = new GameScreen(this, player1, player2);
-
                 }
-
                 this.setScreen(gameScreen);
 
                 break;
@@ -100,27 +90,19 @@ public class BBGame extends Game {
 
 
             case SHOP:
-
-                if(s == null) s = new shopScreen(this,player1,player2);
-
-                this.setScreen(s);
-
+//                if(s == null) s = new shopScreen(this,player1,player2);
+//                this.setScreen(s);
                 break;
 
             case LOSE:
-
-                if(loseScreen == null) loseScreen = new LoseScreen(this,player1);
-
-                this.setScreen(loseScreen);
-
+//                if(loseScreen == null) loseScreen = new LoseScreen(this,player1);
+//                this.setScreen(loseScreen);
                 break;
 
 
             case WIN:
-
-                if(nameScreen == null) nameScreen = new NameScreen(this,player1);
-                this.setScreen(nameScreen);
-
+//                if(nameScreen == null) nameScreen = new NameScreen(this,player1);
+//                this.setScreen(nameScreen);
                 break;
         }
     }

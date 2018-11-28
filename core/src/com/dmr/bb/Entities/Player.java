@@ -1,10 +1,9 @@
 package com.dmr.bb.Entities;
 
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.dmr.bb.Direction;
+import com.dmr.bb.Weapons.Weapon;
 
 public class Player extends Sprite {
     private String name;
